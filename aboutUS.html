@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>About Us</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>  
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <style>
+      * {
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+      }
+      body {
+      
+        background-image: url("./Images/BG.jpg");
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-color: rgba(106,118,118,255); 
+        
+      }
+
+      header {
+     
+      position: fixed;
+      top: 0px;
+      z-index: 10;
+      width: 100%;   
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgb(99,171,168);
+    }
+
+      .logo img {
+        box-shadow: 5px 5px 2px rgba(70, 70, 70, 0.783);
+        margin-left: 15px;
+        border-style: solid;
+        border-color: white;
+        border-width: 1px;
+        border-radius: 6px;
+        max-width: 100%;
+        height: 41px;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+      }
+
+      nav ul li {
+        margin-left: 10px;
+        margin-right: 50px;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: rgb(71, 31, 127);
+        font-weight: bold;
+        font-size: 20px;
+        transition: 0.5s;
+        position: relative;
+      }
+      .links-list li a::after{
+        content: '';
+        width: 0px;
+        height: 3px;
+        position: absolute;
+        bottom: -4px;
+        left: 0px;
+        transition: width 0.5s linear;
+    }
+    .links-list li a:hover::after{
+        width: 100%;
+        background-color: rgb(71, 31, 127);
+        border-radius: 5px;
+    }
+      /* nav a:hover {
+        font-size: 21px; 
+      } */
+
+      .menu{
+            width: 40px;
+            height: 40px;
+            font-size: 30px;
+            background-color: transparent;
+            color:  rgb(71, 31, 127);
+            border-radius: 5px;
+            display: none;
+        }
+        .menu-color{
+            background-color: #8148fd;
+            color: #fff;
+        }
+        .root-container{
+          width: 100%;
+          overflow: hidden;
+          height: fit-content;
+         
+        }
+
+      .container {
+        backdrop-filter: blur(5px);
+        background-color: rgba(213, 209, 223, 0.128);    
+        width: 80%;  
+        margin-inline: auto;
+        margin-bottom: 50px;
+        padding-bottom: 40px;
+        text-align: center;
+        font-family: sans-serif;
+        border-style: solid;
+        border-width: 0.5px;
+        border-radius: 12px;
+        box-shadow: 10px 10px 5px rgba(57, 63, 65, 0.571);
+        border-color: rgba(139, 136, 146, 0.737);
+        margin-top: 80px;
+      }
+      .container h1 {
+        margin: 15px;
+        padding-bottom: 15px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 50px;
+        color: rgb(60, 24, 110);
+        border-bottom-style: solid;
+        border-color: rgb(103, 103, 103);
+      }
+      .webdes {
+        font-size: 20px;
+        font-weight: 700;
+        text-align: justify;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        margin: 40px;
+        padding-bottom: 30px;
+        border-bottom-style: solid;
+        border-color: rgb(103, 103, 103);
+      }
+      .subtitle {
+        margin: 10px;
+        padding: 25px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 35px;
+        color: rgb(60, 24, 110);
+        border-bottom-style: solid;
+        border-color: rgb(103, 103, 103);
+      }
+      .info-details {
+        margin: 5px auto;
+        width: 90%;
+        display: flex;
+        align-items: center;
+        border-bottom-style: solid;
+        border-color: rgb(103, 103, 103);
+      }
+
+      .textleft {
+        text-align: left;
+        padding-left: 20px;
+      }
+      .textleft p {
+        text-align: justify;
+      }
+      .team img {
+        border-style: inset;
+        border-width: 4px;
+        border-color: rgb(108, 177, 255);
+        border-radius: 15px;
+        margin: 15px;
+      }
+      .team p {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 17px;
+        padding: 15px;
+        font-style: Bold;
+      }
+      .allFeed {
+        padding: 15px;
+        border-radius: 10px;
+        text-align: left;
+        width: 85%;
+        margin: 20px auto;
+        background-color: rgba(255, 255, 255, 0.4);
+      }
+      .allFeed p {
+        text-align: justify;
+      }
+      .feedback h3 {
+        padding-left: 15px;
+      }
+      @media screen and (max-width:900px){
+            
+            .menu{
+            display: block;
+        }
+        nav{
+            display: none;
+            width: 200px;
+            height: 300px;
+            background-color: rgba(72, 72, 72, 0.726);
+            border-right: 4px solid rgb(81, 37, 142);
+            border-left: 4px solid rgb(81, 37, 142);
+            border-radius: 20px;
+            position: absolute;
+            top: 70px;
+            right: 10px;
+        }
+        .links-list{
+            width: 100%;
+            height: 100%;
+            padding-top: 30px;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+        }
+        .links-list li{
+            width: 80%;
+            margin-inline: auto;
+            margin-bottom: 10px;
+            background-color: rgb(71, 31, 127);
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+        .links-list li:hover{
+           background-color: #7f8e8b;
+           color: #fff;
+        }
+        .links-list li a{
+            font-size: 15px;
+            color: rgb(255, 254, 254);
+        }
+        .show{
+            display: block;
+        }
+        }
+      @media screen and (max-width: 700px) {
+        .container {
+          width: 80%;
+        }
+        .info-details {
+          flex-direction: column;
+        }
+        .textleft h2 {
+          text-align: center;
+        }
+      }
+      @media screen and (max-width: 550px) {
+        .container {
+          width: 85%;
+         
+        }
+        .container h1{
+          font-size: 35px;
+        }
+        .webdes {
+        font-size: 18px;
+        font-weight: 700;
+        }
+      }
+      @media screen and (max-width: 350px) {
+        .container {
+          width: 95%;
+        }
+      }
+      .feedform{
+        margin: 10px;
+        padding: 15px;
+        margin: auto;
+      }
+      .feedform h3{
+        font-size: 20px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        margin-bottom: 10px;
+      }
+      .feedform a{
+        font-size: 17px;
+        background-color: rgb(81, 37, 142);
+        text-decoration: none;
+        color: #fff;
+        padding: 7px;
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 20px;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-style: solid;
+        border-color: rgb(71, 31, 127);
+        transition: 0.5s;
+        animation-delay: 2s;
+      }
+      .feedform a:hover{
+        border-radius: 20px;
+        font-size: 17.5px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">        
+        <a href="index.html"><img src="./Images/logo.PNG" height="41px"></a>
+      </div>
+      <nav>
+          <ul class="links-list">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="templates.html">Templates</a></li>
+              <li><a href="aboutUS.html">About Us</a></li>
+          </ul>
+      </nav>
+
+      <button class='bx bx-menu menu '></button>
+  </header>
+   
+    <div class="root-container">
+      <div class="container" data-aos="fade-up" data-aos-duration="500">
+        <div data-aos="fade-up" data-aos-duration="500">
+      <h1>About Us</h1>
+    </div>
+    <div>
+      <p class="webdes" data-aos="fade-up" data-aos-duration="500" data-aos-delay="500">
+        <b>
+          "WEB 05 is a dynamic, responsive and user-friendly resume template website
+          offering a diverse range of professionally crafted templates designed
+          to elevate job seeker's profiles. Customer data is totally secured as 
+          website doesn't require internet or social connection to generate Resume. 
+          Our platform provides a seamless experience, empowering users to create 
+          polished resumes that stand out in today's competitive job market. With 
+          customizable layouts, modern designs, and industry-specific options, our 
+          templates cater to various professions, ensuring every applicant can present 
+          their skills and experiences with impact. Elevate your career journey with our
+          intuitive and aesthetically pleasing resume templates."
+      </p>
+    </div>
+    </div>
+
+    <div class="container" data-aos="fade-up" data-aos-duration="500">
+        <div data-aos="fade-up" data-aos-duration="500">
+      <h2 class="subtitle">Our Expert Team</h2>
+    </div>
+      <div class="team">
+        <div class="info-details" data-aos="fade-left" data-aos-duration="500">
+          <img src="./Images/harsh.JPEG" width="130px" />
+          <div class="textleft info">
+            <h2>Harsh Rudrawar</h2>
+            <p>
+              I'm Harsh Rudrawar, an aspiring Information Technology professional 
+              currently studying at Pune Institute of Computer Technology. 
+              Proficient in languages like C, C++, Java, and Python, During my 
+              internship at Infotrixs, I actively contributed to a project, 
+              showcasing my skills in coding resume templates, website maintenance, 
+              and thorough website testing. My hands-on experience in these areas 
+              reflects my commitment to delivering high-quality solutions in the 
+              dynamic field of Information Technology.
+            </p>
+          </div>
+        </div>
+        <div class="info-details" data-aos="fade-left" data-aos-duration="500">
+          <img src="./Images/pranav.JPEG" width="130px" />
+          <div class="textleft">
+            <h2>Pranav Nimje</h2>
+            <p>
+              My name is Pranav Nimje, Third-Year student pursuing my BE in
+              Computer Engineering. Solid understanding of computer logical
+              programming and algorithms. A quick learner with a passion for
+              innovation, and an effective collaborator in team environments.
+              Currently working as Full-Stack Web developer intern at Infotrixs.
+              My role in resume builder website is to design Website User
+              Interface, making it responsive, animating each and every elements 
+              to make it user-friendly and creating few templates.
+            </p>
+          </div>
+        </div>
+        <div class="info-details" data-aos="fade-left" data-aos-duration="500">
+          <img src="./Images/muskan.JPEG" width="130px" />
+          <div class="textleft">
+            <h2>Muskan Jarwal</h2>
+            <p>
+              I am Muskan Jarwal, currently a second-year student pursuing a
+              B.Tech in Computer Science with a specialization in Artificial
+              Intelligence at the Indira Gandhi Delhi Technical University for
+              Women (IGDTUW) in New Delhi. Alongside my academic endeavors, I am
+              gaining experience as an front-end developer intern at Infotrixs,
+              where I am actively involved in contributing to project.
+            </p>
+          </div>
+        </div>
+        <div class="info-details" data-aos="fade-left" data-aos-duration="500">
+          <img src="./Images/sagar.JPEG" width="130px" />
+          <div class="textleft">
+            <h2>Sagar Parise</h2>
+            <p>
+              My name is Sagar Parise and I have completed my B.E in Civil
+              Engg. But I was passionate about coding, so I am currently pursuing
+              MERN Stack Web Development Course at Acciojob. During my academic journey
+              I have gained a lot of experience in Web Development. Now I am
+              working as Front-end Developer intern at Infotrixs for Resume
+              Builder Project, where I have implemented whole logic behind this
+              project and made it dynamic and responsive for all screen.
+            </p>
+          </div>
+        </div>
+        <div class="info-details" data-aos="fade-left" data-aos-duration="500">
+          <img src="./Images/shweta.JPEG" width="130px" />
+          <div class="textleft">
+            <h2>Shweta Gidveer</h2>
+            <p>
+                I am Shweta Gidveer. I completed my MCA and currently doing 
+                Full Stack Developer(.Net) Course Certification in Pune. 
+                During this Course I have learned how to do Back-End work. Now I am 
+                learning Front-End work in the course as well as Infotrixs Internship.
+                I'm created Template for Resume Builder and contributed in Coding.
+            </p>
+          </div>
+        </div>
+        <div class="info-details" data-aos="fade-left" data-aos-duration="500">
+          <img src="./Images/yajnesh.jpg" width="130px" />
+          <div class="textleft">
+            <h2>Yajnesh</h2>
+            <p>
+              My name is Yajnesh, final year student pursuing Masters in
+              Computer Applications. Good in logical thinking, learning new
+              things and an effective collaborator in team environments.
+              Currently working as Full-Stack Web developer intern at Infotrixs.
+              My role in resume builder website is to design a template and make
+              the website responsive.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" data-aos="fade-up" data-aos-duration="500">
+        <div data-aos="fade-up" data-aos-duration="500">
+      <h2 class="subtitle">Feedbacks</h2>
+    </div>
+    <div class="feedform" data-aos="fade-up" data-aos-duration="500">
+      <h3>Please share your Feedback here</h3>
+      <br>
+      <a href="https://forms.gle/NCECbjreoG2ZbRsF7">Feedback Form</a>
+      <br>
+    </div>
+      <div class="feedback">
+        <div class="allFeed" data-aos="fade-right" data-aos-duration="500">
+          <h3>Shruti Pohane ⭐⭐⭐⭐⭐</h3>
+          <p>
+            This website is actually very useful , it helps upcoming 
+            freshers to get an idea on building their resume , I totally give this 
+            website a 5 start rating.
+          </p>
+        </div>
+        <div class="allFeed" data-aos="fade-left" data-aos-duration="500">
+          <h3>Yash Rathod ⭐⭐⭐⭐</h3>
+          <p>
+            This website is really good to get an instant resume.
+          </p>
+        </div>
+        <div class="allFeed" data-aos="fade-right" data-aos-duration="500">
+          <h3>Vraj Gujrathi ⭐⭐⭐⭐⭐</h3>
+          <p>
+            Best site to make a resume without any hustle.
+          </p>
+        </div>
+        <div class="allFeed" data-aos="fade-left" data-aos-duration="500">
+          <h3>Shreejith Suvarna ⭐⭐⭐⭐</h3>
+          <p>
+            The Web 05 Resume Builder web app is a good tool for anyone 
+            looking to create a resume effortlessly. The website is also 
+            user-friendly. I recommend this platform for those seeking a 
+            hassle-free resume creation experience.
+          </p>
+        </div>
+        <div class="allFeed" data-aos="fade-right" data-aos-duration="500">
+          <h3>Pooja Nimje ⭐⭐⭐⭐⭐</h3>
+          <p>
+            Website looks attractive and user easy to create resume with 
+            available templates efficiently.
+          </p>
+        </div>
+        <div class="allFeed" data-aos="fade-left" data-aos-duration="500">
+          <h3>Aditya Chavan ⭐⭐⭐⭐⭐</h3>
+          <p>
+            As a college student, I found the resume builder website incredibly 
+            helpful. It took the guesswork out of formatting and content, 
+            providing a clear structure to showcase my skills and experiences. 
+            Easy to use and effective!
+          </p>
+        </div>
+        <div class="allFeed" data-aos="fade-right" data-aos-duration="500">
+          <h3>Aayysh Patil ⭐⭐⭐⭐⭐</h3>
+          <p>
+            Impressed with the resume builder website! It made crafting my 
+            resume as an associate engineer effortless. The templates are 
+            professional, and the step-by-step guidance ensures a polished result. 
+            Great tool!
+          </p>
+        </div>
+        <div class="allFeed" data-aos="fade-left" data-aos-duration="500">
+          <h3>Kartik Jadhav ⭐⭐⭐⭐⭐</h3>
+          <p>
+            The resume builder website is a game-changer! , it streamlined the process, 
+            providing a user-friendly interface and valuable suggestions to enhance my 
+            resume. Highly recommended!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+    <script>
+      const menu = document.querySelector(".menu");
+      const nav =document.querySelector("nav");
+      menu.addEventListener("click", ()=>{
+         
+         nav.classList.toggle("show");
+         menu.classList.toggle("menu-color")
+      })
+      </script>
+
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
+  </body>
+</html>

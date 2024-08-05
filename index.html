@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+        body{
+           
+            background-image: url("./Images/BG.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-color: rgba(106,118,118,255); 
+            
+          
+        }
+        .root{
+            width: 100%;
+            height: fit-content;
+            padding-top: 50px;
+            margin-top: 100px; 
+            
+        }
+        .header {
+           
+            width: 100%;
+            padding: 7px 20px;
+            padding-right: 50px;
+            display: flex;
+            position: fixed;
+            z-index: 100;
+            top: 0px;
+            left: 0px;
+            background-color: rgb(99,171,168);
+            justify-content: space-between;
+            align-items: center;
+            /* background-color: #68aba7;
+            border-bottom:1px solid #76777759; */
+            
+        }
+
+        .logo img {
+            box-shadow: 5px 5px 2px rgba(70, 70, 70, 0.783);
+            margin-left: 15px;
+            border-style: solid;
+            border-color: white;
+            border-width: 1px;
+            border-radius: 6px;
+            max-width: 100%;
+            height: 41px;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        /* nav ul li {
+            margin-left: 10px;
+            margin-right: 50px;
+        } */
+        
+        nav a {
+            text-decoration: none;
+            color: rgb(71, 31, 127);
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.5s;
+            position: relative;
+        }
+        /* nav a:hover{
+            font-size: 21px;
+        } */
+        .links-list li a::after{
+            content: '';
+            width: 0px;
+            height: 3px;
+            position: absolute;
+            bottom: -4px;
+            left: 0px;
+            transition: width 0.5s linear;
+        }
+        .links-list li a:hover::after{
+            width: 100%;
+            background-color: rgb(71, 31, 127);
+            border-radius: 5px;
+        }
+        .menu{
+            width: 40px;
+            height: 40px;
+            font-size: 30px;
+            background-color: transparent;
+            color:  rgb(71, 31, 127);
+            border-radius: 5px;
+            display: none;
+        }
+        .menu-color{
+            background-color: #8148fd;
+            color: #fff;
+        }
+        .box{
+            width: 70%;
+            height: fit-content;
+            backdrop-filter: blur(5px);
+            background-color: rgba(213, 209, 223, 0.128);
+            text-align: center;
+            margin: auto;
+            border-style: solid;
+            border-width: 0.5px;
+            border-radius: 12px;
+            box-shadow: 10px 10px 5px rgba(57, 63, 65, 0.571);
+            border-color: rgba(139, 136, 146, 0.737);
+            padding-bottom: 40px;
+            padding-top: 10px;
+            margin-bottom: 2%;
+        }
+        #guide{
+            backdrop-filter: blur(5px);
+            background-color: rgba(213, 209, 223, 0.128);
+            text-align: center;
+            margin: auto;
+            margin-top: 20px;
+            margin-bottom: 50px;
+            padding: 30px 20px;
+            width: 70%;
+            height: fit-content;
+            /* min-width: 800px;
+            max-width: 800px; */
+            border-style: solid;
+            border-width: 0.5px;
+            border-radius: 12px;
+            box-shadow: 10px 10px 5px rgba(57, 63, 65, 0.571);
+            border-color: rgba(139, 136, 146, 0.737);
+            animation-delay: 2s;
+        }
+        #welcome{
+            margin: 20px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: rgb(81, 37, 142);
+            animation-delay: 0.5s;
+        }
+        #create{
+            margin: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 35px;
+            animation-delay: 1s;
+        }
+        #increase{
+            margin: 20px;
+            font-size: 20px;
+            padding-bottom: 20px;
+            animation-delay: 1.5s;
+        }
+        #button{
+            background-color: rgb(81, 37, 142);
+            text-decoration: none;
+            color: white;
+            padding: 7px;
+            border-top-right-radius: 2px;
+            border-bottom-right-radius: 20px;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            box-shadow: 5px 5px 2px rgba(57, 63, 65, 0.571);
+            font-size: larger;
+            border-style: solid;
+            border-color: rgb(71, 31, 127);
+            transition: 0.5s;
+            animation-delay: 2s;
+            margin-bottom: 20px;
+        }
+        #button:hover{
+            border-radius: 20px;
+            font-size: 20.5px;
+        }
+        #logo{
+            box-shadow: 5px 5px 2px rgba(57, 63, 65, 0.571);
+            border-radius: 6px;
+            margin: 7px;
+        }
+        #com{
+            margin: auto;
+            width: 90%;
+           transition: 0.5s;
+        }
+        #com h2{
+            text-align: center;
+            padding-top: 45px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: rgb(54, 21, 100);
+        }
+
+        /* .slider-container{
+            width: 90%;
+            height: fit-content;
+            padding: 15px;
+            margin-top: 50px;
+            margin-inline: auto;
+            border-radius: 20px;    
+            box-shadow: 5px 5px 10px rgba(12, 12, 12, 0.54);
+            border-color: rgba(255, 255, 255, 0.212);
+        }
+
+        .slider-container h2{
+            padding: 10px 20px;
+            color: rgb(54, 21, 100);
+            text-align: center;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        marquee{
+           background-color: antiquewhite;
+           margin-top: 15px;
+           padding: 20px;
+           border-radius: 15px;
+           border-right: 3px solid rgba(255, 255, 255, 0.212);
+           border-left: 3px solid rgba(255, 255, 255, 0.212);
+        }
+        marquee img{
+            width: 110px;
+            height: 30px;
+            margin-right: 40px;          
+        }
+        marquee img:last-child{
+            height: 50px; 
+        } */
+        .logos{
+            width: 90%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px 0px;
+            white-space: nowrap;
+            border-right-style: solid;
+            border-left-style: solid;
+            border-radius: 10px;
+            border-color: rgba(255, 255, 255, 0.543);
+        }
+        .logos-slider img{
+            height: 30px;
+            margin: 0 50px;
+        }
+        .logos-slider{
+            white-space: nowrap;
+            display: inline-block;
+            animation: 30s slide infinite linear;
+        }
+        .logos-slider img{
+            height: 30px;
+            margin: 0 50px;
+        }
+        @keyframes slide {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+        #space{
+            min-height: 40px;
+            max-height: 40px;
+        }
+
+        #userguide{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: rgb(81, 37, 142);
+            text-align: center;
+            font-size: 30px;
+            transition: 0.5s;
+        }
+        #intro{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            transition: 0.5s;
+        }
+        #steps{
+            background-color: rgba(255, 255, 255, 0.345);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: left;
+            font-size: 20px;
+            transition: 0.5s;
+        }
+        #steps p{
+            text-align: justify;
+        }
+        .anim{
+            opacity: 0;
+            transform: translateY(30px);
+            animation: moveup 0.5s linear forwards;
+        }
+        @keyframes moveup{
+            100%{
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+        @media screen and (max-width: 900px) {
+            .box{
+                width: 90%;
+            }
+            #create{
+            font-size: 30px;
+            text-align: center;
+        }
+        #guide{
+            width: 90%;
+            transition: 0.3s;
+            text-align: justify;
+        }
+        .menu{
+            display: block;
+        }
+        nav{
+            display: none;
+            width: 200px;
+            height: 300px;
+            background-color: rgba(72, 72, 72, 0.726);
+            border-right: 4px solid rgb(81, 37, 142);
+            border-left: 4px solid rgb(81, 37, 142);
+            border-radius: 20px;
+            position: absolute;
+            top: 70px;
+            right: 10px;
+        }
+        .links-list{
+            width: 100%;
+            height: 100%;
+
+            padding-top: 30px;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+        }
+        .links-list li{
+            width: 80%;
+            margin-inline: auto;
+            background-color: rgb(71, 31, 127);
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+        .links-list li:hover{
+           background-color: #7f8e8b;
+           color: #fff;
+        }
+        .links-list li a{
+            font-size: 15px;
+            color: rgb(255, 254, 254);
+        }
+        .show{
+            display: block;
+        }
+        }
+        @media screen and (max-width: 500px){
+            nav ul{
+                gap: 10px;
+            }
+            .header {
+                padding-right: 20px;
+            }
+            #create{
+            font-size: 20px;
+            text-align: center;
+        }
+        #increase{
+            font-size: 16px;
+        }
+        .slider-container h2{
+            font-size: 20px;
+            font-weight: 800;
+            padding: 10px 0px;
+        }
+        #steps p{
+           font-size: 18px;
+        }
+    }
+
+    </style>
+</head>
+
+<body>
+    <div class="root">
+    <div class="header">
+        <div class="logo">
+            <a href="index.html"><img src="./Images/logo.PNG" height="41px"></a>
+        </div>
+        <div class="navbar"><nav>
+            <ul class="links-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#space">User Guide</a></li>
+                <li><a href="templates.html">Templates</a></li>
+                <li><a href="aboutUS.html">About Us</a></li>
+            </ul>
+        </nav></div>
+       <button class='bx bx-menu menu '></button>
+    </div>
+    <div class="box">
+        <h4 id="welcome" class="anim">WELCOME TO WEB 05 RESUME BUILDER</h4>
+        <h1 id="create" class="anim">Create your own personalized Resume
+            using different templates.</h1>
+        <p id="increase" class="anim">Increase your chances of shortlisting your Resume by 33%</p>      
+        <a id="button" href="templates.html" class="anim">GET STARTED</a>
+    </div>
+
+    <!-- ----ImageSlider----- -->
+
+        <!-- <div class="slider-container">
+            <h2>Some famous companies that shortlisted our resumes</h2>
+           
+                <marquee behavior="" direction="">
+                
+                    <img src="https://www.freepnglogos.com/uploads/google-logo-png/file-google-logo-svg-wikimedia-commons-23.png" />
+                        
+                    <img src="https://companieslogo.com/img/orig/ACN_BIG-3a6289fb.png?t=1633439499" />
+                
+                    <img src="https://companieslogo.com/img/orig/AMZN_BIG-accd00da.png?t=1632523695" />
+            
+                    <img src="https://companieslogo.com/img/orig/META_BIG-e5411269.png?t=1654568366" />
+                            
+                    <img src="https://companieslogo.com/img/orig/MSFT_BIG-24b887c2.png?t=1633073277" />
+                    <img src="https://companieslogo.com/img/orig/CTSH_BIG-953fa309.png?t=1652276339" />
+                    <img src="https://companieslogo.com/img/orig/WMT_BIG-4dae0070.png?t=1633217525" />
+                    <img src="https://companieslogo.com/img/orig/MMYT_BIG-7271499a.png?t=1683788455" />
+                    <img src="https://companieslogo.com/img/orig/TCS.NS_BIG-89c50e39.png?t=1631949260" />
+    
+                    <img src="https://companieslogo.com/img/orig/deloitte_BIG-86032e42.png?t=1699425248" />
+                    <img src="https://companieslogo.com/img/orig/ZOMATO.NS_BIG-aa3dfaff.png?t=1660019461" />
+                  
+                    <img src="  https://companieslogo.com/img/orig/INFY_BIG-9635f314.png?t=1682136428" />           
+
+                    <img src="https://companieslogo.com/img/orig/HCLTECH.NS-a301c3b4.png?t=1596030335" />
+                    <img src="https://companieslogo.com/img/orig/PAYTM.NS_BIG-463f18d2.png?t=1636379788" />
+                    <img src="https://companieslogo.com/img/orig/TECHM.NS_BIG-281ab5b9.png?t=1601652359" />
+                    <img src="https://companieslogo.com/img/orig/IBM-57502b16.png?t=1669436923" />
+                    <img src="https://companieslogo.com/img/orig/PEP_BIG-f38ffafd.png?t=1633439508" />
+                    <img src="https://companieslogo.com/img/orig/WIT_BIG-0de2dc21.png?t=1648406781" />
+           
+                </marquee>
+        </div> -->
+
+
+
+    <div class="anim" id="com">
+        <h2><b>Some famous companies that shortlisted our resumes</b></h2>
+            <div class="logos">
+                <div class="logos-slider">
+                
+                    
+                        <img src="./Images/comgoogle.png" />
+                    
+                        <img src="./Images/comaccenture.png" />
+                    
+                        <img src="./Images/comamazon.png" />
+                
+                        <img src="./Images/comfaceboor.png" />
+                    
+                        <img src="./Images/commicrosoft.png" />
+                    
+                        <img src="./Images/comtcs.png" />
+
+                        <img src="./Images/cominfotrixs.PNG" />
+
+                        <img src="./Images/comcognizant.png" />
+                    
+                        <img src="./Images/comdeloitte.png" />
+                    
+                        <img src="./Images/comgoldmansachs.png" />
+                
+                        <img src="./Images/comJPmorgan.png" />
+                    
+                        <img src="./Images/commmt.svg" />
+                    
+                        <img src="./Images/compaytm.webp" />
+
+                        <img src="./Images/comwalmart.png" />
+                </div>
+                <div class="logos-slider">
+                
+                   
+                        <img src="./Images/comgoogle.png" />
+                    
+                        <img src="./Images/comaccenture.png" />
+                    
+                        <img src="./Images/comamazon.png" />
+                
+                        <img src="./Images/comfaceboor.png" />
+                    
+                        <img src="./Images/commicrosoft.png" />
+                    
+                        <img src="./Images/comtcs.png" />
+
+                        <img src="./Images/cominfotrixs.PNG" />
+
+                        <img src="./Images/comcognizant.png" />
+                    
+                        <img src="./Images/comdeloitte.png" />
+                    
+                        <img src="./Images/comgoldmansachs.png" />
+                
+                        <img src="./Images/comJPmorgan.png" />
+                    
+                        <img src="./Images/commmt.svg" />
+                    
+                        <img src="./Images/compaytm.webp" />
+
+                        <img src="./Images/comwalmart.png" />
+                </div>
+            </div>
+    </div>
+
+    <div id="space"></div>
+
+    <div id="guide" data-aos="fade-up">
+        <h2 id="userguide" ><b>User Guide</b></h2>
+        <br>
+        <h3 id="intro">Web 05 is very easy and simple to use. It is designed 
+            in such a way that user can generate their favrouite resume by 
+            following just few steps.</h3>
+        <br>
+        <hr>
+        <br>
+            <div id="steps">
+            <h3>Step 1:</h3>
+            <p>Click on "GET STARTED" button and you will be directed to templates page.</p>
+            <br>
+            <h3>Step 2:</h3>
+            <p>Now you have multiple Resume Templates options, choose your favourite Resume Template and click on that particular template.</p>
+            <br>
+            <h3>Step 3:</h3>
+            <p>Fill your correct details in the form appearing on left side. While uploading Profile photo it is recommended to upload 1:1 ratio (square) photo for better resolution. On your right side Resume Template format is shown for reference.</p>
+            <br>
+            <h3>Step 4:</h3>
+            <p>After filling all the Information in the form, click on "CV Generate" button.</p>
+            <br>
+            <h3>Step 5:</h3>
+            <p>Your resume is Generated on your right side along with your details that you have filled in form. Click on "Download" button and your resume will be downloaded in PDF format.</p>
+        </div>
+    </div>
+</div>
+<script>
+    const menu = document.querySelector(".menu");
+    const nav =document.querySelector("nav");
+    menu.addEventListener("click", ()=>{
+       
+       nav.classList.toggle("show");
+       menu.classList.toggle("menu-color")
+    })
+</script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+</body>
+</html>
